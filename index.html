@@ -1,0 +1,1005 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI CyberShield – Real-Time Threat Detection Dashboard</title>
+  <meta name="description" content="AI-powered cybersecurity dashboard for automated real-time network monitoring, threat detection, and intelligent automated threat response." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/home-redesign.css" />
+</head>
+<body data-theme="dark" data-page="home">
+  <!-- Dynamic circuit background covering all sections -->
+  <canvas id="circuit-video-bg" class="global-circuit-bg"></canvas>
+  <div class="cyber-scanline"></div>
+  <!-- Main interactive background is the circuit-video-bg canvas -->
+
+  <!-- ===================== TOAST CONTAINER ===================== -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- ===================== LANDING PAGE ===================== -->
+  <section id="page-home" class="page page-home active">
+
+    <!-- Sticky Nav -->
+    <nav class="home-nav">
+      <div class="nav-brand">
+        <span class="brand-icon">⬡</span>
+        <span class="brand-text">CyberShield<span class="brand-ai">AI</span></span>
+      </div>
+      <div class="nav-links">
+        <a href="#" onclick="showPage('home')" class="nav-link active">Home</a>
+        <a href="#" onclick="showPage('about')" class="nav-link">About</a>
+        <a href="#" onclick="showPage('dashboard')" class="nav-link nav-cta">Launch Dashboard</a>
+      </div>
+    </nav>
+
+    <!-- Full-page scrollable wrapper -->
+    <div class="home-scroll-wrap" id="home-scroll-wrap">
+
+      <!-- ──── HERO VIEWPORT ──── -->
+      <div class="hero-viewport">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="badge-dot pulse-dot"></span>
+            AI Engine Active · Monitoring 24/7
+          </div>
+          <h1 class="hero-title hero-animate" style="--delay: 0.1s">
+            AI Cyber Threat<br/>
+            <span class="gradient-text">Detection Dashboard</span>
+          </h1>
+          <p class="hero-subtitle hero-animate" style="--delay: 0.2s">
+            Automated real-time network security with intelligent threat response.
+            Zero manual input — fully autonomous AI-driven protection.
+          </p>
+          <div class="hero-stats hero-animate" style="--delay: 0.3s">
+            <div class="hero-stat">
+              <span class="stat-num" id="home-stat-traffic">0</span>
+              <span class="stat-label">Events Analyzed</span>
+            </div>
+            <div class="hero-stat">
+              <span class="stat-num" id="home-stat-threats">0</span>
+              <span class="stat-label">Threats Blocked</span>
+            </div>
+            <div class="hero-stat">
+              <span class="stat-num" id="home-stat-uptime">99.9%</span>
+              <span class="stat-label">System Uptime</span>
+            </div>
+          </div>
+          <div class="hero-actions hero-animate" style="--delay: 0.4s">
+            <button class="btn-primary" onclick="showPage('dashboard')">
+              <span class="btn-icon">⚡</span>
+              Launch Dashboard
+            </button>
+            <button class="btn-outline" onclick="showPage('about')">
+              Learn More
+            </button>
+          </div>
+          <div class="hero-features hero-animate" style="--delay: 0.5s">
+            <div class="feature-chip"><span>🛡️</span> Auto-Response</div>
+            <div class="feature-chip"><span>🤖</span> AI Detection</div>
+            <div class="feature-chip"><span>📡</span> Live Monitoring</div>
+            <div class="feature-chip"><span>⚡</span> Instant Alerts</div>
+          </div>
+        </div>
+
+        <!-- Floating cards -->
+        <div class="floating-cards">
+          <div class="float-card float-card-1">
+            <div class="fc-icon red">🔴</div>
+            <div class="fc-content">
+              <div class="fc-title">Attack Detected</div>
+              <div class="fc-sub">DDoS · 192.168.1.45</div>
+            </div>
+            <div class="fc-badge badge-red">BLOCKED</div>
+          </div>
+          <div class="float-card float-card-2">
+            <div class="fc-icon green">🟢</div>
+            <div class="fc-content">
+              <div class="fc-title">AI Response</div>
+              <div class="fc-sub">Threat Mitigated</div>
+            </div>
+            <div class="fc-badge badge-green">SECURED</div>
+          </div>
+          <div class="float-card float-card-3">
+            <div class="fc-icon yellow">🟡</div>
+            <div class="fc-content">
+              <div class="fc-title">Suspicious Activity</div>
+              <div class="fc-sub">Port Scan · Analyzing</div>
+            </div>
+            <div class="fc-badge badge-yellow">WATCH</div>
+          </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator hero-animate" style="--delay: 0.9s">
+          <span>Scroll to explore</span>
+          <div class="scroll-chevron"></div>
+        </div>
+      </div><!-- /hero-viewport -->
+
+      <!-- ============================================================
+           SECTION 1 · Core Capabilities
+      ============================================================ -->
+      <section class="hs-section" id="hs-capabilities">
+        <div class="hs-inner">
+          <div class="hs-heading scroll-reveal">
+            <span class="hs-eyebrow">What We Do</span>
+            <h2>Core <span class="gradient-text">Capabilities</span></h2>
+            <p class="hs-desc">Four pillars of enterprise-grade protection, powered by autonomous AI.</p>
+          </div>
+          <div class="cap-grid">
+            <div class="cap-card scroll-reveal" style="--sr-delay:0.05s">
+              <div class="cap-icon-wrap blue-glow"><span class="cap-icon">🔮</span></div>
+              <h3>Predictive Analysis</h3>
+              <p>Identifies suspicious patterns before attacks occur using machine-learning models trained on millions of known intrusion signatures.</p>
+              <div class="cap-tag">NSL-KDD · CICIDS2017</div>
+            </div>
+            <div class="cap-card scroll-reveal" style="--sr-delay:0.15s">
+              <div class="cap-icon-wrap green-glow"><span class="cap-icon">🤖</span></div>
+              <h3>Autonomous Response</h3>
+              <p>Automatically blocks or flags malicious traffic in milliseconds. No human in the loop — instant SOAR-level countermeasures.</p>
+              <div class="cap-tag">SOAR · Auto-Block</div>
+            </div>
+            <div class="cap-card scroll-reveal" style="--sr-delay:0.25s">
+              <div class="cap-icon-wrap cyan-glow"><span class="cap-icon">📡</span></div>
+              <h3>24/7 Monitoring</h3>
+              <p>Continuous real-time network surveillance with adaptive threat detection that never sleeps and never misses an anomaly.</p>
+              <div class="cap-tag">Always-On · Real-Time</div>
+            </div>
+            <div class="cap-card scroll-reveal" style="--sr-delay:0.35s">
+              <div class="cap-icon-wrap red-glow"><span class="cap-icon">⚡</span></div>
+              <h3>Real-Time Alerts</h3>
+              <p>Instant detection with priority-ranked notifications. Critical threats surface immediately with full forensic context included.</p>
+              <div class="cap-tag">Sub-second · Ranked</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SECTION 2 · How It Works
+      ============================================================ -->
+      <section class="hs-section hs-dark" id="hs-howitworks">
+        <div class="hs-inner">
+          <div class="hs-heading scroll-reveal">
+            <span class="hs-eyebrow">The Process</span>
+            <h2>How It <span class="gradient-text">Works</span></h2>
+            <p class="hs-desc">A seamless four-stage pipeline from raw packets to actionable security intelligence.</p>
+          </div>
+          <div class="hiw-flow scroll-reveal">
+            <div class="hiw-step">
+              <div class="hiw-num">01</div>
+              <div class="hiw-icon">📡</div>
+              <h4>Monitor Network Traffic</h4>
+              <p>Continuous deep-packet inspection across all interfaces, capturing every flow in real time.</p>
+            </div>
+            <div class="hiw-arrow">
+              <div class="hiw-arrow-line"><div class="hiw-arrow-ball"></div></div>
+              <span class="hiw-chevron">▶</span>
+            </div>
+            <div class="hiw-step">
+              <div class="hiw-num">02</div>
+              <div class="hiw-icon">🔍</div>
+              <h4>Detect Suspicious Behavior</h4>
+              <p>AI classifies each packet against 41+ feature dimensions, scoring threat probability instantly.</p>
+            </div>
+            <div class="hiw-arrow">
+              <div class="hiw-arrow-line"><div class="hiw-arrow-ball"></div></div>
+              <span class="hiw-chevron">▶</span>
+            </div>
+            <div class="hiw-step">
+              <div class="hiw-num">03</div>
+              <div class="hiw-icon">🧠</div>
+              <h4>Analyze Threat Patterns</h4>
+              <p>Correlates signals across time windows to identify coordinated campaigns and zero-day exploits.</p>
+            </div>
+            <div class="hiw-arrow">
+              <div class="hiw-arrow-line"><div class="hiw-arrow-ball"></div></div>
+              <span class="hiw-chevron">▶</span>
+            </div>
+            <div class="hiw-step">
+              <div class="hiw-num">04</div>
+              <div class="hiw-icon">📋</div>
+              <h4>Generate Alerts &amp; Reports</h4>
+              <p>Exports prioritized alerts, full incident timelines, and compliance-ready security reports.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SECTION 3 · Usage Statistics
+      ============================================================ -->
+      <section class="hs-section" id="hs-stats">
+        <div class="hs-inner">
+          <div class="hs-heading scroll-reveal">
+            <span class="hs-eyebrow">Platform Scale</span>
+            <h2>Usage <span class="gradient-text">Statistics</span></h2>
+            <p class="hs-desc">Trusted globally — numbers that reflect round-the-clock elite-grade protection at scale.</p>
+          </div>
+          <div class="ustats-grid">
+            <div class="ustat-card scroll-reveal" style="--sr-delay:0.05s">
+              <div class="ustat-glow blue"></div>
+              <div class="ustat-icon">🖥️</div>
+              <div class="ustat-num" data-target="12480">0</div>
+              <div class="ustat-label">Systems Protected</div>
+              <div class="ustat-bar"><div class="ustat-fill" style="width:0%;--fill-end:87%"></div></div>
+            </div>
+            <div class="ustat-card scroll-reveal" style="--sr-delay:0.15s">
+              <div class="ustat-glow green"></div>
+              <div class="ustat-icon">👥</div>
+              <div class="ustat-num" data-target="3920">0</div>
+              <div class="ustat-label">Active Users</div>
+              <div class="ustat-bar"><div class="ustat-fill" style="width:0%;--fill-end:72%"></div></div>
+            </div>
+            <div class="ustat-card scroll-reveal" style="--sr-delay:0.25s">
+              <div class="ustat-glow red"></div>
+              <div class="ustat-icon">🛡️</div>
+              <div class="ustat-num" data-target="98741">0</div>
+              <div class="ustat-label">Threats Detected</div>
+              <div class="ustat-bar"><div class="ustat-fill" style="width:0%;--fill-end:95%"></div></div>
+            </div>
+            <div class="ustat-card scroll-reveal" style="--sr-delay:0.35s">
+              <div class="ustat-glow cyan"></div>
+              <div class="ustat-icon">🌐</div>
+              <div class="ustat-num" data-target="540">0</div>
+              <div class="ustat-label">Networks Monitored</div>
+              <div class="ustat-bar"><div class="ustat-fill" style="width:0%;--fill-end:60%"></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SECTION 4 · Testimonials
+      ============================================================ -->
+      <section class="hs-section hs-dark" id="hs-testimonials">
+        <div class="hs-inner">
+          <div class="hs-heading scroll-reveal">
+            <span class="hs-eyebrow">Success Stories</span>
+            <h2>What Teams <span class="gradient-text">Say</span></h2>
+            <p class="hs-desc">Real feedback from security professionals who rely on CyberShield AI every day.</p>
+          </div>
+          <div class="testi-grid">
+            <div class="testi-card scroll-reveal" style="--sr-delay:0.05s">
+              <div class="testi-quote-icon">&ldquo;</div>
+              <p class="testi-text">The system detected and blocked a coordinated DDoS attack targeting our infrastructure in real time — before any engineers were even notified. Truly impressive autonomous response.</p>
+              <div class="testi-footer">
+                <div class="testi-avatar blue-av">SR</div>
+                <div class="testi-meta">
+                  <div class="testi-name">Samuel R.</div>
+                  <div class="testi-role">Lead Network Engineer, FinTech Corp</div>
+                </div>
+                <div class="testi-stars">★★★★★</div>
+              </div>
+            </div>
+            <div class="testi-card scroll-reveal" style="--sr-delay:0.2s">
+              <div class="testi-quote-icon">&ldquo;</div>
+              <p class="testi-text">Reliable monitoring and sub-second threat detection dramatically improved our incident response time. The AI reports are clear, actionable, and have already saved us from two major breaches.</p>
+              <div class="testi-footer">
+                <div class="testi-avatar green-av">AK</div>
+                <div class="testi-meta">
+                  <div class="testi-name">Aisha K.</div>
+                  <div class="testi-role">SOC Manager, Global Telecom</div>
+                </div>
+                <div class="testi-stars">★★★★★</div>
+              </div>
+            </div>
+            <div class="testi-card scroll-reveal" style="--sr-delay:0.35s">
+              <div class="testi-quote-icon">&ldquo;</div>
+              <p class="testi-text">We deployed CyberShield AI across 200+ nodes. The autonomous response module neutralized a ransomware C2 connection and isolated the host within 800 milliseconds. Exceptional.</p>
+              <div class="testi-footer">
+                <div class="testi-avatar purple-av">MJ</div>
+                <div class="testi-meta">
+                  <div class="testi-name">Marcus J.</div>
+                  <div class="testi-role">CISO, Enterprise Healthcare Group</div>
+                </div>
+                <div class="testi-stars">★★★★★</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ──── HOME FOOTER ──── -->
+      <footer class="home-page-footer">
+        <div class="hpf-brand">
+          <span class="brand-icon">⬡</span>
+          <span>CyberShield<span class="brand-ai">AI</span></span>
+        </div>
+        <p>&copy; 2025 CyberShield AI &middot; Real-Time Threat Detection &middot; v2.4.1</p>
+        <button class="btn-primary hpf-cta" onclick="showPage('dashboard')">
+          <span class="btn-icon">⚡</span> Launch Dashboard
+        </button>
+      </footer>
+
+    </div><!-- /home-scroll-wrap -->
+  </section>
+
+  <!-- ===================== ABOUT PAGE ===================== -->
+  <section id="page-about" class="page page-about">
+    <nav class="home-nav">
+      <div class="nav-brand">
+        <span class="brand-icon">⬡</span>
+        <span class="brand-text">CyberShield<span class="brand-ai">AI</span></span>
+      </div>
+      <div class="nav-links">
+        <a href="#" onclick="showPage('home')" class="nav-link">Home</a>
+        <a href="#" onclick="showPage('about')" class="nav-link active">About</a>
+        <a href="#" onclick="showPage('dashboard')" class="nav-link nav-cta">Launch Dashboard</a>
+      </div>
+    </nav>
+    <div class="about-content">
+      <div class="about-hero">
+        <h1>About <span class="gradient-text">CyberShield AI</span></h1>
+        <p class="about-intro">A next-generation AI-powered cybersecurity platform built for real-time threat detection and automated incident response.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-card glass-card">
+          <div class="about-card-icon">🤖</div>
+          <h3>AI in Cybersecurity</h3>
+          <p>Modern AI models learn from millions of network events, identifying malicious patterns that rule-based systems miss. Machine learning enables continuous adaptation to evolving threats — from zero-days to sophisticated APTs.</p>
+        </div>
+        <div class="about-card glass-card">
+          <div class="about-card-icon">⚡</div>
+          <h3>Real-Time Detection</h3>
+          <p>Traditional security tools react after damage is done. Real-time AI detection reduces Mean Time to Detect (MTTD) from hours to milliseconds — critical in preventing data breaches and ransomware propagation.</p>
+        </div>
+        <div class="about-card glass-card">
+          <div class="about-card-icon">🛡️</div>
+          <h3>Automated Response</h3>
+          <p>Security Orchestration, Automation and Response (SOAR) capabilities allow the system to autonomously block malicious IPs, isolate compromised nodes, and neutralize threats without human intervention.</p>
+        </div>
+        <div class="about-card glass-card">
+          <div class="about-card-icon">📈</div>
+          <h3>Training Datasets</h3>
+          <p>This system's detection logic is inspired by industry-standard datasets:</p>
+          <ul class="dataset-list">
+            <li><strong>NSL-KDD</strong> — Improved KDD Cup dataset with 41 network features, widely used for intrusion detection research with 4 attack categories.</li>
+            <li><strong>CICIDS2017</strong> — Canadian Institute dataset featuring 80 features, covering DDoS, Brute Force, Web Attacks, Infiltration, and Botnet scenarios.</li>
+          </ul>
+        </div>
+        <div class="about-card glass-card">
+          <div class="about-card-icon">🌐</div>
+          <h3>Threat Categories</h3>
+          <div class="threat-tags">
+            <span class="tag tag-red">DDoS</span>
+            <span class="tag tag-red">Ransomware</span>
+            <span class="tag tag-red">SQL Injection</span>
+            <span class="tag tag-yellow">Port Scan</span>
+            <span class="tag tag-yellow">Brute Force</span>
+            <span class="tag tag-yellow">Anomaly</span>
+            <span class="tag tag-green">Safe Traffic</span>
+            <span class="tag tag-green">Normal HTTP</span>
+          </div>
+        </div>
+        <div class="about-card glass-card">
+          <div class="about-card-icon">🏆</div>
+          <h3>System Architecture</h3>
+          <div class="arch-flow">
+            <div class="arch-step">📡 Packet Capture</div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-step">🔍 Feature Extraction</div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-step">🤖 AI Classification</div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-step">🛡️ Auto Response</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-footer">
+        <button class="btn-primary" onclick="showPage('dashboard')">
+          <span class="btn-icon">⚡</span>
+          Launch Dashboard
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MAIN DASHBOARD APP ===================== -->
+  <section id="page-dashboard" class="page page-dashboard">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-icon">⬡</span>
+        <div>
+          <div class="brand-text">CyberShield<span class="brand-ai">AI</span></div>
+          <div class="brand-sub">Threat Detection</div>
+        </div>
+      </div>
+
+      <div class="sidebar-status">
+        <div class="status-dot-wrap">
+          <div class="status-dot pulse-dot" id="sidebar-status-dot"></div>
+        </div>
+        <div class="status-text">
+          <div class="status-title" id="sidebar-status-title">Monitoring Active</div>
+          <div class="status-sub" id="sidebar-status-sub">All systems nominal</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#" class="sidebar-link active" data-view="view-dashboard" onclick="switchView(this)">
+          <span class="link-icon">📊</span>
+          <span>Dashboard</span>
+        </a>
+        <a href="#" class="sidebar-link" data-view="view-alerts" onclick="switchView(this)">
+          <span class="link-icon">🚨</span>
+          <span>Alerts</span>
+          <span class="link-badge" id="alert-badge">0</span>
+        </a>
+        <a href="#" class="sidebar-link" data-view="view-analytics" onclick="switchView(this)">
+          <span class="link-icon">📈</span>
+          <span>Analytics</span>
+        </a>
+        <a href="#" class="sidebar-link" data-view="view-logs" onclick="switchView(this)">
+          <span class="link-icon">📜</span>
+          <span>System Logs</span>
+        </a>
+        <a href="#" class="sidebar-link" data-view="view-settings" onclick="switchView(this)">
+          <span class="link-icon">⚙️</span>
+          <span>Settings</span>
+        </a>
+        <a href="#" class="sidebar-link" data-view="view-reports" onclick="switchView(this); ReportsEngine.initReports()">
+          <span class="link-icon">📋</span>
+          <span>Reports</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="btn-home" onclick="showPage('home')">← Home</button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dash-main">
+      <!-- Top Bar -->
+      <header class="dash-header">
+        <div class="dash-header-left">
+          <h2 class="dash-title" id="dash-view-title">Dashboard Overview</h2>
+          <div class="dash-time" id="dash-time"></div>
+        </div>
+        <div class="dash-header-right">
+          <div class="monitor-badge">
+            <span class="pulse-dot"></span>
+            <span id="monitor-label">System Monitoring</span>
+          </div>
+          <button id="sim-toggle-btn" class="btn-stop" onclick="toggleSimulation()">⏹ Stop</button>
+          <div class="threat-level-badge" id="threat-level-badge">
+            <span id="threat-level-text">SECURE</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- ===== VIEW: DASHBOARD ===== -->
+      <div id="view-dashboard" class="view active">
+        <!-- Metric Cards -->
+        <div class="metrics-grid">
+          <div class="metric-card glass-card">
+            <div class="metric-icon blue">📡</div>
+            <div class="metric-body">
+              <div class="metric-label">Total Traffic</div>
+              <div class="metric-value" id="m-traffic">0</div>
+              <div class="metric-delta positive" id="m-traffic-delta">+0/s</div>
+            </div>
+          </div>
+          <div class="metric-card glass-card">
+            <div class="metric-icon red">🔴</div>
+            <div class="metric-body">
+              <div class="metric-label">Threats Detected</div>
+              <div class="metric-value" id="m-threats">0</div>
+              <div class="metric-delta negative" id="m-threats-delta">+0 total</div>
+            </div>
+          </div>
+          <div class="metric-card glass-card">
+            <div class="metric-icon green">🛡️</div>
+            <div class="metric-body">
+              <div class="metric-label">Threats Resolved</div>
+              <div class="metric-value" id="m-resolved">0</div>
+              <div class="metric-delta positive" id="m-resolved-delta">0% rate</div>
+            </div>
+          </div>
+          <div class="metric-card glass-card" id="system-status-card">
+            <div class="metric-icon green" id="status-icon">✅</div>
+            <div class="metric-body">
+              <div class="metric-label">System Status</div>
+              <div class="metric-value status-value" id="m-status">SECURE</div>
+              <div class="metric-delta" id="m-status-delta">All clear</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="charts-row">
+          <div class="chart-card glass-card chart-large">
+            <div class="chart-header">
+              <h3>Live Network Traffic</h3>
+              <div class="chart-meta">Real-time · Auto-updating</div>
+            </div>
+            <div class="chart-wrap">
+              <canvas id="trafficChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-card glass-card chart-small">
+            <div class="chart-header">
+              <h3>Threat Distribution</h3>
+              <div class="chart-meta">By category</div>
+            </div>
+            <div class="chart-wrap">
+              <canvas id="threatPieChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Row -->
+        <div class="bottom-row">
+          <!-- Live Monitor Panel -->
+          <div class="panel glass-card monitor-panel">
+            <div class="panel-header">
+              <h3>Live Network Monitor</h3>
+              <div class="panel-badge pulse-ring">LIVE</div>
+            </div>
+            <div class="monitor-stream" id="monitor-stream"></div>
+          </div>
+
+          <!-- Alert Panel -->
+          <div class="panel glass-card alert-panel">
+            <div class="panel-header">
+              <h3>Active Alerts</h3>
+              <span class="panel-count" id="panel-alert-count">0</span>
+            </div>
+            <div class="alert-feed" id="alert-feed"></div>
+          </div>
+
+          <!-- Response Panel -->
+          <div class="panel glass-card response-panel">
+            <div class="panel-header">
+              <h3>Auto Response</h3>
+              <span class="panel-badge green">AI Active</span>
+            </div>
+            <div class="response-feed" id="response-feed"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== VIEW: ALERTS ===== -->
+      <div id="view-alerts" class="view">
+        <div class="view-toolbar">
+          <div class="filter-group">
+            <button class="filter-btn active" onclick="filterAlerts('all', this)">All</button>
+            <button class="filter-btn" onclick="filterAlerts('critical', this)">Critical</button>
+            <button class="filter-btn" onclick="filterAlerts('warning', this)">Warning</button>
+            <button class="filter-btn" onclick="filterAlerts('resolved', this)">Resolved</button>
+          </div>
+          <div class="alert-summary-chips">
+            <span class="chip chip-red" id="alerts-critical-count">0 Critical</span>
+            <span class="chip chip-yellow" id="alerts-warning-count">0 Warnings</span>
+            <span class="chip chip-green" id="alerts-resolved-count">0 Resolved</span>
+          </div>
+        </div>
+        <div class="alerts-table-wrap glass-card">
+          <table class="alerts-table">
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Threat Type</th>
+                <th>Source IP</th>
+                <th>Severity</th>
+                <th>Status</th>
+                <th>Action Taken</th>
+              </tr>
+            </thead>
+            <tbody id="alerts-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ===== VIEW: ANALYTICS ===== -->
+      <div id="view-analytics" class="view">
+        <div class="analytics-grid">
+          <div class="chart-card glass-card">
+            <div class="chart-header">
+              <h3>Attack Trends (24h)</h3>
+              <div class="chart-meta">Hourly breakdown</div>
+            </div>
+            <div class="chart-wrap">
+              <canvas id="trendChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-card glass-card">
+            <div class="chart-header">
+              <h3>Detection Frequency</h3>
+              <div class="chart-meta">By threat category</div>
+            </div>
+            <div class="chart-wrap">
+              <canvas id="freqChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-card glass-card">
+            <div class="chart-header">
+              <h3>Traffic vs Threats</h3>
+              <div class="chart-meta">Safe vs Malicious</div>
+            </div>
+            <div class="chart-wrap">
+              <canvas id="compareChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-card glass-card">
+            <div class="chart-header">
+              <h3>Protocol Distribution</h3>
+              <div class="chart-meta">By network protocol</div>
+            </div>
+            <div class="chart-wrap">
+              <canvas id="protocolChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== VIEW: LOGS ===== -->
+      <div id="view-logs" class="view">
+        <div class="logs-toolbar">
+          <div class="log-filters">
+            <button class="filter-btn active" onclick="filterLogs('all', this)">All</button>
+            <button class="filter-btn" onclick="filterLogs('INFO', this)">Info</button>
+            <button class="filter-btn" onclick="filterLogs('WARN', this)">Warning</button>
+            <button class="filter-btn" onclick="filterLogs('CRIT', this)">Critical</button>
+            <button class="filter-btn" onclick="filterLogs('RESP', this)">Responses</button>
+          </div>
+          <button class="btn-clear" onclick="clearLogs()">Clear Logs</button>
+        </div>
+        <div class="logs-container glass-card" id="logs-container"></div>
+      </div>
+
+      <!-- ===== VIEW: SETTINGS ===== -->
+      <div id="view-settings" class="view">
+        <div class="settings-grid">
+          <div class="settings-card glass-card">
+            <h3>Appearance</h3>
+            <div class="setting-item">
+              <div class="setting-info">
+                <div class="setting-label">Dark Mode</div>
+                <div class="setting-desc">Toggle between dark and light theme</div>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" id="toggle-dark" checked onchange="toggleTheme(this)" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="setting-item">
+              <div class="setting-info">
+                <div class="setting-label">Neon Glow Effects</div>
+                <div class="setting-desc">Visual glow on threat indicators</div>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" id="toggle-glow" checked onchange="toggleGlow(this)" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="settings-card glass-card">
+            <h3>Notifications</h3>
+            <div class="setting-item">
+              <div class="setting-info">
+                <div class="setting-label">Enable Alerts</div>
+                <div class="setting-desc">Show toast notifications for threats</div>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" id="toggle-alerts" checked onchange="toggleAlerts(this)" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="setting-item">
+              <div class="setting-info">
+                <div class="setting-label">Critical Alerts Only</div>
+                <div class="setting-desc">Only notify on Attack-level events</div>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" id="toggle-crit-only" onchange="toggleCritOnly(this)" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="settings-card glass-card">
+            <h3>AI Detection Engine</h3>
+            <div class="setting-item">
+              <div class="setting-info">
+                <div class="setting-label">AI Sensitivity</div>
+                <div class="setting-desc">Detection threshold level</div>
+              </div>
+              <div class="sensitivity-select">
+                <select id="sensitivity-select" onchange="setSensitivity(this.value)">
+                  <option value="low">Low</option>
+                  <option value="medium" selected>Medium</option>
+                  <option value="high">High</option>
+                </select>
+              </div>
+            </div>
+            <div class="setting-item">
+              <div class="setting-info">
+                <div class="setting-label">Auto-Response</div>
+                <div class="setting-desc">Automatically block detected threats</div>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" id="toggle-autoresponse" checked onchange="toggleAutoResponse(this)" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="setting-item">
+              <div class="setting-info">
+                <div class="setting-label">Scan Interval</div>
+                <div class="setting-desc">How often the system checks for threats</div>
+              </div>
+              <div class="sensitivity-select">
+                <select id="interval-select" onchange="setInterval_custom(this.value)">
+                  <option value="1000">Fast (1s)</option>
+                  <option value="2000" selected>Normal (2s)</option>
+                  <option value="5000">Slow (5s)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-card glass-card">
+            <h3>System Information</h3>
+            <div class="sys-info-list">
+              <div class="sys-info-row"><span>Version</span><span class="mono">v2.4.1</span></div>
+              <div class="sys-info-row"><span>AI Model</span><span class="mono">CyberNet-7B</span></div>
+              <div class="sys-info-row"><span>Dataset</span><span class="mono">NSL-KDD + CICIDS2017</span></div>
+              <div class="sys-info-row"><span>Engine</span><span class="mono">Random Forest + LSTM</span></div>
+              <div class="sys-info-row"><span>Accuracy</span><span class="mono text-green">99.2%</span></div>
+              <div class="sys-info-row"><span>Uptime</span><span class="mono text-green" id="sys-uptime">00:00:00</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== VIEW: SECURITY ASSESSMENT / REPORTS ===== -->
+      <div id="view-reports" class="view">
+
+        <!-- Header Row -->
+        <div class="r-header-row">
+          <div class="r-header-info">
+            <h2><span>📋</span> Security Assessment Report</h2>
+            <div class="r-header-meta">CyberShield AI v2.4.1 · Auto-refreshes from live backend data every 30 seconds</div>
+          </div>
+          <div class="r-header-actions">
+            <span class="r-countdown-badge" id="r-countdown">Auto-refresh in 30s</span>
+            <span id="r-last-refresh" class="r-countdown-badge">Last updated: —</span>
+            <button id="r-generate-btn" onclick="ReportsEngine.generateReport()">⚡ Generate Report</button>
+            <button class="r-export-btn r-export-pdf" onclick="ReportsEngine.exportPDF()">📄 Export PDF</button>
+            <button class="r-export-btn r-export-txt" onclick="ReportsEngine.exportTXT()">💾 Export TXT</button>
+          </div>
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="r-metrics-grid">
+          <div class="r-metric-card">
+            <div class="r-metric-icon blue">📡</div>
+            <div class="r-metric-label">Total Traffic Analyzed</div>
+            <div class="r-metric-value" id="r-total-traffic">—</div>
+          </div>
+          <div class="r-metric-card">
+            <div class="r-metric-icon red">🔴</div>
+            <div class="r-metric-label">Total Threats Detected</div>
+            <div class="r-metric-value" id="r-total-threats">—</div>
+          </div>
+          <div class="r-metric-card">
+            <div class="r-metric-icon orange">⚡</div>
+            <div class="r-metric-label">Active Threats</div>
+            <div class="r-metric-value" id="r-active-threats">—</div>
+          </div>
+          <div class="r-metric-card">
+            <div class="r-metric-icon green">✅</div>
+            <div class="r-metric-label">Resolved Threats</div>
+            <div class="r-metric-value" id="r-resolved">—</div>
+          </div>
+          <div class="r-metric-card">
+            <div class="r-metric-icon yellow">⏳</div>
+            <div class="r-metric-label">Unresolved Threats</div>
+            <div class="r-metric-value" id="r-unresolved">—</div>
+          </div>
+        </div>
+
+        <!-- Score + Charts Row -->
+        <div class="r-main-row">
+          <!-- Security Score Card -->
+          <div class="r-score-card">
+            <div class="r-score-title">System Security Score</div>
+            <div class="r-score-ring-wrap">
+              <svg width="128" height="128" viewBox="0 0 128 128">
+                <circle class="r-score-track" cx="64" cy="64" r="54"/>
+                <circle id="r-score-ring" cx="64" cy="64" r="54"
+                  stroke-dasharray="339.3" stroke-dashoffset="339.3"/>
+              </svg>
+              <div class="r-score-num">
+                <span id="r-score-value">—</span>
+                <span class="r-score-max">/100</span>
+              </div>
+            </div>
+            <div id="r-risk-icon" style="font-size:24px">—</div>
+            <span id="r-risk-label" class="risk-label risk-safe">—</span>
+            <div class="r-score-divider"></div>
+            <div class="r-score-stats">
+              <div class="r-score-stat-row">
+                <span>Active Threats</span>
+                <span id="rs-active">—</span>
+              </div>
+              <div class="r-score-stat-row">
+                <span>Critical Events</span>
+                <span id="rs-critical" style="color:var(--neon-red)">—</span>
+              </div>
+              <div class="r-score-stat-row">
+                <span>Resolve Rate</span>
+                <span id="rs-rate" style="color:var(--neon-green)">—</span>
+              </div>
+              <div class="r-score-stat-row">
+                <span>Monitoring Uptime</span>
+                <span style="color:var(--neon-cyan)" id="rs-uptime">—</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Charts Panel -->
+          <div class="r-charts-panel">
+            <div class="r-chart-row">
+              <div class="r-chart-card">
+                <div class="r-chart-title">Threat Trend (last 5 min)</div>
+                <div class="r-chart-meta">Live data · 30-second buckets · Auto-updating</div>
+                <div class="r-chart-wrap">
+                  <canvas id="r-trend-chart"></canvas>
+                </div>
+              </div>
+              <div class="r-chart-card">
+                <div class="r-chart-title">Severity Distribution</div>
+                <div class="r-chart-meta">By threat severity level</div>
+                <div class="r-chart-wrap">
+                  <canvas id="r-severity-chart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI Summary -->
+        <div class="r-ai-card">
+          <div class="r-ai-card-header">
+            <span class="r-ai-badge">🤖 AI ANALYSIS</span>
+            <h3>Automated Security Intelligence Summary</h3>
+          </div>
+          <div id="r-ai-summary" class="r-ai-summary-text risk-safe">
+            Click <strong>Generate Report</strong> or navigate to this page to run an automated security analysis.
+          </div>
+        </div>
+
+        <!-- Bottom Row: Threat Types + Severity -->
+        <div class="r-bottom-row">
+          <div class="r-section-card">
+            <h3>🎯 Threat Type Distribution</h3>
+            <div id="r-threat-types">
+              <div class="r-empty">Waiting for threat data…</div>
+            </div>
+          </div>
+
+          <div class="r-section-card">
+            <h3>⚠️ Severity Distribution</h3>
+            <div class="r-sev-section">
+              <div class="r-sev-row" id="r-sev-critical">
+                <div class="r-sev-header">
+                  <span class="r-sev-label" style="color:#ff3366">🔴 Critical</span>
+                  <span class="r-sev-meta"><span class="sev-count">0</span> events &nbsp;·&nbsp; <span class="sev-pct">0%</span></span>
+                </div>
+                <div class="sev-bar-wrap"><div class="sev-fill" style="width:0%"></div></div>
+              </div>
+              <div class="r-sev-row" id="r-sev-high">
+                <div class="r-sev-header">
+                  <span class="r-sev-label" style="color:#ff7c3c">🟠 High</span>
+                  <span class="r-sev-meta"><span class="sev-count">0</span> events &nbsp;·&nbsp; <span class="sev-pct">0%</span></span>
+                </div>
+                <div class="sev-bar-wrap"><div class="sev-fill" style="width:0%"></div></div>
+              </div>
+              <div class="r-sev-row" id="r-sev-medium">
+                <div class="r-sev-header">
+                  <span class="r-sev-label" style="color:#ffd60a">🟡 Medium</span>
+                  <span class="r-sev-meta"><span class="sev-count">0</span> events &nbsp;·&nbsp; <span class="sev-pct">0%</span></span>
+                </div>
+                <div class="sev-bar-wrap"><div class="sev-fill" style="width:0%"></div></div>
+              </div>
+              <div class="r-sev-row" id="r-sev-low">
+                <div class="r-sev-header">
+                  <span class="r-sev-label" style="color:#00ff88">🟢 Low</span>
+                  <span class="r-sev-meta"><span class="sev-count">0</span> events &nbsp;·&nbsp; <span class="sev-pct">0%</span></span>
+                </div>
+                <div class="sev-bar-wrap"><div class="sev-fill" style="width:0%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Attacks Timeline Table -->
+        <div class="r-attacks-card">
+          <div class="r-attacks-header">
+            <h3>🕒 Recent Attack Timeline</h3>
+            <span class="r-countdown-badge">Last 20 threats · Live updating</span>
+          </div>
+          <div class="r-table-wrap">
+            <table class="r-attacks-table">
+              <thead>
+                <tr>
+                  <th>Timestamp</th>
+                  <th>Threat Type</th>
+                  <th>Severity</th>
+                  <th>Status</th>
+                  <th>Source IP</th>
+                  <th>Action Taken</th>
+                </tr>
+              </thead>
+              <tbody id="r-attacks-tbody">
+                <tr>
+                  <td colspan="6" style="text-align:center;color:var(--text-muted);padding:24px">
+                    Launch the dashboard and let it run to populate threat data.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- System Usage History Section -->
+        <div class="r-system-usage-card">
+          <div class="system-usage-summary">
+            <div class="usage-summary-label">Total Systems Running This Website:</div>
+            <div class="usage-summary-count" id="total-systems-count">12</div>
+          </div>
+          <div class="r-attacks-header">
+            <h3>📂 System Usage History</h3>
+            <div class="scan-history-actions">
+              <input type="text" class="scan-search-input" placeholder="Search system or IP...">
+              <button class="btn-primary" style="padding:4px 12px; font-size:12px;">Filter</button>
+            </div>
+          </div>
+          <div class="r-table-wrap" style="max-height: 400px; overflow-y: auto;">
+            <table class="r-attacks-table system-usage-table">
+              <thead>
+                <tr>
+                  <th>Date and Time</th>
+                  <th>System Name</th>
+                  <th>IP Address</th>
+                  <th>Operating System</th>
+                  <th>Status</th>
+                  <th>Risk Level</th>
+                </tr>
+              </thead>
+              <tbody id="system-usage-tbody">
+                <tr>
+                  <td colspan="6" style="text-align:center;color:var(--text-muted);padding:24px">
+                    Awaiting deployment logs...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div><!-- /view-reports -->
+
+    </main>
+  </section>
+
+  <script src="js/ai-engine.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/reports.js"></script>
+  <script src="js/home-sections.js"></script>
+  <script src="js/circuit-video.js"></script>
+</body>
+</html>
